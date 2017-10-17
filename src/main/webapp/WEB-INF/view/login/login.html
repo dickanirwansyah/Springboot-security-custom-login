@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="${title}"></title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="/css/bootstrap.css"/>
+        <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/css/bootstrap-theme.css"/>
+        <link rel="stylesheet" href="/css/login.css"/>
+    </head>
+    <body>
+        <div class="container">
+            <form class="form-signin" 
+                  th:action="@{/login}" method="POST">
+                <h2>Login Page</h2>
+                <label class="sr-only">Email</label>
+                <input type="text" class="form-control" name="email" placeholder="Email"/>
+                <label class="sr-only">Password</label>
+                <input type="password" class="form-control" name="password" placeholder="Password"/>
+                <br/>
+                <button type="submit" class="btn btn-lg btn-success btn-block">
+                    Yes Login !
+                </button>
+                <a th:href="@{/registration}" class="btn btn-lg btn-default btn-block">
+                    No, I Want Register !
+                </a>
+                <br/>
+                
+                <div align="center" th:if="${param.error}">
+                    <p style="font-size: 50; color: #761c19;"><strong>Email or Password invalid !</strong></p>
+            </div>
+            </form>
+        </div>
+        
+        <script src="/js/bootstrap.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/jQuery.js"></script>
+    </body>
+</html>
